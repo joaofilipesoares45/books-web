@@ -1,6 +1,5 @@
 .page.landing {
     background-color: white;
-    padding: 10px;
     display: flex;
     flex-direction: column;
 
@@ -8,13 +7,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-inline: 70px;
+        padding: 10px 70px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.527);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        color: white;
+        background-color: rgb(7, 147, 59);
 
         a {
             display: flex;
             align-items: center;
             gap: 15px;
-            color: rgb(0, 0, 126);
+            color: inherit;
             font-size: 2rem;
             font-weight: 650;
             flex-wrap: nowrap;
@@ -30,34 +35,33 @@
                 background-color: transparent;
                 padding: 5px 10px;
                 border-radius: 40px;
-                color: black;
                 font-weight: 550;
-                opacity: .7;
-                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.218);
+                opacity: 1;
                 --color: white;
-                --back: black;
+                --back: rgb(0, 74, 9);
             }
         }
 
         .login-nav {
             display: flex;
+            align-items: center;
             flex-direction: row;
             gap: 20px;
 
             button {
-                background-color: white;
-                color: black;
+                color: rgb(0, 0, 0);
+                background-color: transparent;
+                height: fit-content;
 
                 &:last-child {
-                    color: white;
-                    background-color: rgb(0, 0, 126);
+                    color: rgb(0, 126, 15);
+                    background-color: white;
                     border: solid 2px white;
                     padding: 10px;
                     border-radius: 20px;
                     text-decoration: none !important;
 
-                    --color: rgb(0, 0, 126);
-                    --br-color: rgb(0, 0, 126);
+                    --back: rgb(0, 41, 5);
                 }
 
                 &:hover {
@@ -78,7 +82,8 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            height: 100%;
+            height: calc(100% - 10px);
+            padding: 10px;
 
             form {
                 width: 50%;
@@ -99,39 +104,42 @@
                     font-size: .9rem;
                 }
 
-                div{
+                div {
                     display: flex;
                     align-items: center;
                     position: relative;
                     margin-top: 30px;
-                    width: min-content;
+                    width: 100%;
+                    max-width: 350px;
                     background-color: white;
                     box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.155);
                     border-radius: 100px;
+
                     input {
                         padding: 15px 20px;
-                        width: 350px;
+                        width: 100%;
+
                         font-weight: 550;
                         font-size: 1rem;
 
-                        &::placeholder{
+                        &::placeholder {
                             font-style: normal;
                             opacity: .7;
                         }
                     }
 
                     button {
-                        background-color: rgb(0, 0, 126);
+                        background-color: rgb(0, 126, 15);
                         border: solid 2px white;
                         font-weight: 550;
                         position: absolute;
                         height: calc(100% - 10px);
                         right: 5px;
                         border-radius: 50px;
-                        padding-inline: 10px;
+                        padding-inline: 20px;
 
-                        --color: rgb(0, 0, 126);
-                        --br-color: rgb(0, 0, 126);
+                        --color: rgb(0, 126, 15);
+                        --br-color: rgb(0, 126, 15);
                     }
                 }
             }
@@ -141,7 +149,7 @@
                 height: 100%;
                 display: flex;
                 align-items: center;
-                justify-content: center;                
+                justify-content: center;
 
                 img {
                     width: 100%;
@@ -149,6 +157,10 @@
                     border-radius: 10px;
                 }
             }
+        }
+
+        .roller {
+            min-height: 100%;
         }
     }
 }
@@ -158,34 +170,33 @@
 
         .top-nav {
             display: grid;
-            padding-inline: 0px;
-            gap: 10px;
+            grid-template-areas: 
+            "logo opt"
+            "footer footer";
+            padding: 10px;
+            gap: 20px 10px;
 
             a {
-                color: black;
+                color: inherit;
                 font-size: 2rem;
-                grid-row: 1;
             }
 
             nav {
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
                 align-items: center;
-                gap: 0px;
-                grid-row: 2;
-                grid-column: 2;
+                gap: 20px;
+                grid-area: footer;
 
                 button {
                     font-size: .7rem;
                     background-color: transparent;
                     padding: 5px;
                     border-radius: 40px;
-                    color: black;
+                    color: white;
                     font-weight: 550;
-                    opacity: .7;
-                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.218);
-                    --color: white;
-                    --back: black;
+                    opacity: 1;
+                    text-shadow: none;
                 }
             }
 
@@ -193,18 +204,13 @@
                 display: flex;
                 justify-content: flex-end;
                 flex-direction: row;
-                gap: 10px;
-                grid-row: 1;
-                grid-column: 2;
+                gap: 15px;
 
                 button {
-                    font-size: .7rem;
-                    background-color: white;
-                    color: black;
+                    font-size: .8rem;
 
                     &:last-child {
-                        color: white;
-                        background-color: black;
+                        border: none;
                         padding: 10px;
                         border-radius: 20px;
                     }
@@ -215,5 +221,36 @@
                 }
             }
         }
+
+        section {
+            .main-content {
+                align-items: center;
+                justify-content: start;
+                background: url(/banner.jpg);
+                background-size: cover;
+                padding: 10px;
+                margin-inline: 10px;
+                border-radius: 10px;
+
+                form {
+                    width: 100%;
+                    height: auto;
+                    max-width: 400px;
+                    background-color: white;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+
+                .img {
+                    width: auto;
+
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 }
+
+@media (max-width: 510px) {}

@@ -22,7 +22,7 @@ export default function Landing() {
                 </nav>
 
                 <div className="login-nav">
-                    <button onClick={() => navigate('/login')}>login</button>
+                    {/* <button onClick={() => navigate('/login')}>login</button> */}
                     <button onClick={() => navigate('/free')}>Teste Grátis</button>
                 </div>
             </nav>
